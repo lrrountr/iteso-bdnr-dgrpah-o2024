@@ -55,7 +55,6 @@ def main():
         if option == 4:
             model.drop_all(client)
         if option == 5:
-            model.drop_all(client)
             close_client_stub(client_stub)
             exit(0)
 

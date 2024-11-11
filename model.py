@@ -79,10 +79,10 @@ def delete_person(client, name):
                uid
             }
         }"""
-        variables1 = {'$a': name}
-        res1 = client.txn(read_only=True).query(query1, variables=variables1)
-        ppl1 = json.loads(res1.json)
-        for person in ppl1['all']:
+        variables = {'$a': name}
+        result = txn.query(query1, variables=variables)
+        ppl = json.loads(result.json)
+        for person in ppl['all']:
             print("UID: " + person['uid'])
             txn.mutate(del_obj=person)
             print(f"{name} deleted")
